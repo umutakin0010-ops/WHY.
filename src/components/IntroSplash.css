@@ -1,0 +1,73 @@
+.intro-splash {
+  position: fixed; inset: 0; z-index: 100; background: #08080a; display: grid; place-items: center;
+  overflow: hidden; animation: intro-exit .6s cubic-bezier(.6,0,.2,1) forwards; animation-delay: 2.5s;
+}
+.intro-splash.skip { animation: intro-exit .4s ease forwards; animation-delay: 0s; }
+@keyframes intro-exit {
+  0% { opacity: 1; filter: brightness(1); }
+  35% { filter: brightness(2.4); }
+  100% { opacity: 0; transform: scale(1.06); filter: brightness(2.4); visibility: hidden; pointer-events: none; }
+}
+
+.intro-grid {
+  position: absolute; inset: 0; opacity: 0;
+  background-image: linear-gradient(rgba(240,165,57,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(240,165,57,.07) 1px, transparent 1px);
+  background-size: 46px 46px; mask-image: radial-gradient(circle at 50% 45%, #000 0%, transparent 72%);
+  animation: intro-grid-in 1s ease forwards; animation-delay: .05s;
+}
+@keyframes intro-grid-in { to { opacity: 1; } }
+
+.intro-scan {
+  position: absolute; left: 0; right: 0; height: 120px; top: -120px;
+  background: linear-gradient(180deg, transparent, rgba(240,165,57,.09), transparent);
+  animation: intro-scan-move 2.2s linear infinite;
+}
+@keyframes intro-scan-move { from { top: -120px; } to { top: 100%; } }
+
+.intro-stage { position: relative; display: flex; flex-direction: column; align-items: center; }
+
+.intro-corner { position: absolute; width: 46px; height: 46px; border: 2px solid #f0a539; opacity: 0; }
+.intro-corner.tl { top: -34px; left: -34px; border-right: none; border-bottom: none; animation: corner-in-tl .6s cubic-bezier(.16,.9,.3,1) forwards; animation-delay: .15s; }
+.intro-corner.tr { top: -34px; right: -34px; border-left: none; border-bottom: none; animation: corner-in-tr .6s cubic-bezier(.16,.9,.3,1) forwards; animation-delay: .22s; }
+.intro-corner.bl { bottom: -34px; left: -34px; border-right: none; border-top: none; animation: corner-in-bl .6s cubic-bezier(.16,.9,.3,1) forwards; animation-delay: .22s; }
+.intro-corner.br { bottom: -34px; right: -34px; border-left: none; border-top: none; animation: corner-in-br .6s cubic-bezier(.16,.9,.3,1) forwards; animation-delay: .15s; }
+@keyframes corner-in-tl { from { opacity: 0; transform: translate(-40px, -40px); } to { opacity: .8; transform: none; } }
+@keyframes corner-in-tr { from { opacity: 0; transform: translate(40px, -40px); } to { opacity: .8; transform: none; } }
+@keyframes corner-in-bl { from { opacity: 0; transform: translate(-40px, 40px); } to { opacity: .8; transform: none; } }
+@keyframes corner-in-br { from { opacity: 0; transform: translate(40px, 40px); } to { opacity: .8; transform: none; } }
+
+.intro-mark {
+  font-family: var(--font-display); font-weight: 800; font-size: clamp(72px, 13vw, 128px);
+  letter-spacing: -.04em; color: #f5f4ef; opacity: 0; filter: blur(14px); transform: scale(1.9);
+  animation: intro-focus .75s cubic-bezier(.16,.9,.3,1) forwards; animation-delay: .32s;
+  text-shadow: 0 0 60px rgba(240,165,57,.35);
+}
+.intro-mark span { color: #f0a539; }
+@keyframes intro-focus { 60% { opacity: 1; } to { opacity: 1; filter: blur(0); transform: scale(1); } }
+
+.intro-beam {
+  position: absolute; top: 50%; left: -20%; width: 140%; height: 3px; margin-top: -1.5px;
+  background: linear-gradient(90deg, transparent, #f0a539 45%, #fff 50%, #f0a539 55%, transparent);
+  box-shadow: 0 0 24px 2px rgba(240,165,57,.7); opacity: 0;
+  animation: beam-sweep .55s cubic-bezier(.6,0,.3,1) forwards; animation-delay: 1.05s;
+}
+@keyframes beam-sweep { 0% { transform: translateX(-70%) scaleX(.3); opacity: 0; } 12% { opacity: 1; } 100% { transform: translateX(70%) scaleX(1); opacity: 0; } }
+
+.intro-tag {
+  margin-top: 22px; font-family: var(--font-mono); font-size: 12px; letter-spacing: .3em; text-transform: uppercase;
+  color: #8a8578; opacity: 0; animation: intro-rise .5s ease forwards; animation-delay: 1.5s;
+}
+@keyframes intro-rise { to { opacity: 1; } }
+
+.intro-skip {
+  position: absolute; bottom: 30px; right: 34px; font-family: var(--font-mono); font-size: 11px; color: #6b6a63;
+  background: transparent; border: 1px solid rgba(255,255,255,.12); border-radius: 99px; padding: 7px 14px;
+  letter-spacing: .1em; opacity: 0; animation: intro-rise .4s ease forwards; animation-delay: 1.7s; transition: .18s ease;
+}
+.intro-skip:hover { color: #f0a539; border-color: rgba(240,165,57,.4); }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-splash, .intro-grid, .intro-scan, .intro-corner, .intro-mark, .intro-beam, .intro-tag, .intro-skip {
+    animation: none !important; opacity: 1 !important; filter: none !important; transform: none !important;
+  }
+}

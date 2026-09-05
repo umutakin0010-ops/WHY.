@@ -1,0 +1,86 @@
+.why-intro { max-width: 640px; margin: 40px auto; text-align: center; }
+.why-eyebrow { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--text-faint); font-size: 11px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; }
+.why-hero-copy { color: var(--text-muted); font-size: 16px; line-height: 1.6; margin: 16px 0 22px; }
+.why-pair-input {
+  width: 220px; margin: 0 auto 20px; text-align: center; height: 44px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--card-soft); color: var(--text); font-weight: 700; font-size: 14px;
+}
+.why-progress-wrap { display: flex; align-items: center; gap: 12px; margin-bottom: 26px; }
+.why-progress-track { flex: 1; height: 4px; background: var(--bg-soft); border-radius: 99px; overflow: hidden; }
+.why-progress-fill { height: 100%; background: var(--accent); border-radius: 99px; transition: width .4s ease; }
+.why-progress-label { font-size: 11px; color: var(--text-faint); font-weight: 700; white-space: nowrap; }
+
+.why-question h1 { font-family: var(--font-display); font-size: clamp(26px, 4vw, 36px); letter-spacing: -.02em; margin: 0 0 8px; }
+.why-question .desc { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0 0 22px; max-width: 560px; }
+
+.why-options { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+.why-option {
+  border: 1px solid var(--border); border-radius: 13px; background: var(--card); padding: 14px 16px; text-align: left;
+  display: flex; align-items: center; justify-content: space-between; font-weight: 600; font-size: 13.5px;
+  transition: transform .18s cubic-bezier(.34,1.56,.64,1), border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.why-option:hover { border-color: var(--border-strong); transform: translateY(-2px) scale(1.015); box-shadow: var(--shadow-sm); }
+.why-option:active { transform: scale(.98); }
+.why-option.selected { border-color: var(--accent); background: var(--accent-soft); color: var(--accent); transform: scale(1.02); }
+.why-option.positive.selected { border-color: var(--positive); background: var(--positive-soft); color: var(--positive); }
+.why-option.negative.selected { border-color: var(--negative); background: var(--negative-soft); color: var(--negative); }
+
+.why-textarea {
+  width: 100%; min-height: 160px; resize: vertical; border: 1px solid var(--border); border-radius: 14px;
+  background: var(--card); color: var(--text); padding: 16px; font-size: 13.5px; line-height: 1.7; outline: none;
+}
+.why-textarea:focus { border-color: var(--accent); }
+
+.why-notice {
+  margin-top: 16px; border: 1px solid var(--warning); background: var(--warning-soft); border-radius: 12px;
+  padding: 13px 15px; display: flex; gap: 10px; font-size: 12.5px; color: var(--text); align-items: flex-start;
+}
+
+.why-risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; margin-top: 4px; }
+.why-risk-field label { display: block; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--text-faint); font-weight: 700; margin-bottom: 8px; }
+.why-risk-field input {
+  width: 100%; height: 46px; border-radius: 12px; border: 1px solid var(--border); background: var(--card);
+  color: var(--text); font-family: var(--font-mono); font-size: 15px; font-weight: 600; padding: 0 14px; outline: none;
+}
+.why-risk-field input:focus { border-color: var(--accent); }
+.why-risk-summary { display: flex; gap: 22px; margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.why-risk-summary div span { display: block; font-size: 10.5px; color: var(--text-faint); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 4px; }
+.why-risk-summary div strong { font-family: var(--font-mono); font-size: 18px; }
+
+.why-info-list { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+.why-info-item {
+  display: flex; gap: 11px; align-items: flex-start; padding: 13px 15px; border-radius: 12px; font-size: 12.5px; line-height: 1.6;
+}
+.why-info-item.flag { background: var(--negative-soft); border: 1px solid var(--negative); color: var(--text); }
+.why-info-item.clear { background: var(--positive-soft); border: 1px solid var(--positive); color: var(--text); }
+
+.why-footer { display: flex; justify-content: space-between; margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--border); }
+
+.why-summary-card { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin: 18px 0; background: var(--card-soft); }
+.why-summary-row { display: grid; grid-template-columns: 200px 1fr; gap: 14px; padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 12.5px; }
+.why-summary-row:last-child { border: 0; }
+.why-summary-row span { color: var(--text-faint); }
+.why-summary-row strong { font-weight: 600; white-space: pre-wrap; }
+
+.why-overlay {
+  position: fixed; inset: 0; z-index: 30; display: grid; place-items: center; background: rgba(0,0,0,.35); backdrop-filter: blur(6px);
+}
+.why-overlay-card { width: min(420px, 90vw); background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 36px 30px; text-align: center; box-shadow: var(--shadow-lg); }
+
+.why-verdict { display: grid; grid-template-columns: 1fr 140px; gap: 30px; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 30px; margin-bottom: 20px; }
+.why-decision-word { font-family: var(--font-mono); font-size: clamp(48px, 8vw, 80px); font-weight: 700; letter-spacing: -.02em; animation: decision-pop .5s cubic-bezier(.2,1.4,.4,1) both; animation-delay: .15s; }
+.why-decision-word.ready { color: var(--positive); }
+.why-decision-word.pause { color: var(--negative); }
+.why-decision-word.unclear { color: var(--warning); }
+.why-decision-word.invalid { color: var(--negative); }
+.why-score-ring { width: 130px; height: 130px; border-radius: 50%; display: grid; place-items: center; justify-self: end; position: relative; }
+.why-score-ring div { position: relative; z-index: 1; text-align: center; }
+.why-score-ring:after { content: ''; position: absolute; inset: 8px; background: var(--card); border-radius: 50%; }
+.why-score-ring strong { display: block; font-family: var(--font-mono); font-size: 30px; font-weight: 700; }
+.why-score-ring span { font-size: 10px; color: var(--text-faint); }
+
+@media (max-width: 700px) {
+  .why-verdict { grid-template-columns: 1fr; }
+  .why-score-ring { justify-self: start; }
+}
+@keyframes decision-pop { from { opacity: 0; transform: scale(.85) translateY(6px); } to { opacity: 1; transform: none; } }
